@@ -1,0 +1,88 @@
+name: 问题反馈 / Issue
+description: 提交问题、规则反馈或功能建议
+title: "[问题] "
+labels: []
+assignees: []
+
+body:
+  - type: markdown
+    attributes:
+      value: |
+        ## ⚠️ 提交前请务必阅读以下须知
+
+        在提交 Issue 之前，请确认您已了解并同意以下几点：
+
+        - [ ] 本仓库**不提供**任何客户端的使用说明、教程等 —— 请查阅相关客户端的官方文档。
+        - [ ] 本仓库**不提供**对已有规则进行个人定制修改的服务。
+        - [ ] 如果希望添加**通用规则**，**必须提供可靠的数据源**（如官网链接、公开规则列表等），否则不予处理。
+        - [ ] **禁止**提交任何涉及**成人、政治、暴力、赌博、毒品**等敏感内容的规则。
+        - [ ] 请**遵守您所在地区的法律法规**，合法使用本项目的规则。
+        - [ ] 如果发现规则有误，欢迎反馈，但**不保证处理时效**。
+        - [ ] **不要重复提交**相同的内容。
+        - [ ] 提交前请先[搜索已有 Issue](https://github.com/codetracer/MagicRule/issues)，确认没有其他人提交过相似内容。
+        - [ ] **遇到问题请优先使用 LLM（如 ChatGPT、Claude 等）排查**，LLM 无法解决再提交 Issue。
+
+        ---
+
+  - type: dropdown
+    id: type
+    attributes:
+      label: 问题类型
+      description: 请选择最符合的一项
+      options:
+        - 规则反馈（规则错误、失效、补充等）
+        - 功能建议（平台功能改进）
+        - 规则请求（请求添加新规则）
+        - 其他
+    validations:
+      required: true
+
+  - type: input
+    id: rule_name
+    attributes:
+      label: 规则名称
+      description: 填写相关规则名称或链接，没有可不填
+      placeholder: 例如：xxx 去广告规则
+
+  - type: textarea
+    id: description
+    attributes:
+      label: 问题描述
+      placeholder: 请详细描述你遇到的问题或建议
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected
+    attributes:
+      label: 希望处理方式
+      placeholder: 你期望如何处理？
+    validations:
+      required: true
+
+  - type: input
+    id: datasource
+    attributes:
+      label: 数据源（仅规则请求需要）
+      description: 如果是请求添加通用规则，请在此提供可靠的数据源链接
+      placeholder: https://example.com/rules
+
+  - type: textarea
+    id: screenshots
+    attributes:
+      label: 截图 / 日志（可选）
+      description: 如有截图、错误日志或相关配置，请粘贴在此
+      placeholder: 拖放图片或粘贴文本
+      render: shell
+
+  - type: checkboxes
+    id: confirmation
+    attributes:
+      label: 确认
+      description: 提交前请确认
+      options:
+        - label: 我已阅读并同意上述须知
+          required: true
+        - label: 我已搜索过已有 Issue，未发现相似内容
+          required: true
+        - label: 我已尝试使用 LLM 排查，问题仍未解决
